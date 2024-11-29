@@ -37,7 +37,7 @@ jobs:
           docker push siddharth133/my-spring-boot-app:latest
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
 
     steps:
