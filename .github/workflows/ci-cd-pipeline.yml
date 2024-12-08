@@ -52,7 +52,7 @@ jobs:
       - name: Set up Kubeconfig
         run: |
           mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
+          [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String("${{ secrets.KUBE_CONFIG }}")) | Out-File -FilePath "$HOME\.kube\config" -Encoding UTF8
 
       - name: Deploy to Kubernetes
         run: |
